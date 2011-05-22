@@ -1,7 +1,3 @@
-require "rubygems"
-require 'rack/contrib'
-require 'rack-rewrite'
-
 use Rack::Static, 
   :urls => ["/css", "/images", "/Videos"],
   :root => "public"
