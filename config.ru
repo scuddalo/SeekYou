@@ -1,6 +1,11 @@
+require "rubygems"
+require 'rack/contrib'
+require 'rack-rewrite'
+
 use Rack::Static, 
-  :urls => ["/css", "/images", "/Videos", "/*.html"],
+  :urls => ["/css", "/images", "/Videos"],
   :root => "public"
+
 
 run lambda { |env|
   [
@@ -12,3 +17,5 @@ run lambda { |env|
     File.open('public/index.html', File::RDONLY)
   ]
 }
+
+run Rack::Directory.new('public')
